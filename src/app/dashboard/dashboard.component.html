@@ -1,0 +1,26 @@
+<section>
+	<div class="container">
+		<h1>Medication APP</h1>
+		<form>
+			<div>
+		       <label>Institutes</label>
+		       <div class="form-group">
+				   <select class="form-control" name="idi" required [(ngModel)]="id_institute" #idi="ngModel" (change)="onInstituteChange()">
+						  	<option [value]=0>&nbsp;Select an institute</option>
+						    <option *ngFor="let i of institutes" [value]="i.id" [selected]="id_institute == i.id">{{i.name}} - {{i.code}}</option>
+				   </select>
+		      </div>
+			</div>
+			<div *ngIf="id_institute!=0">
+		       <label>Departments</label>
+		       <div class="form-group">
+				   <select class="form-control" name="idd" required [(ngModel)]="id_department" #idd="ngModel" (change)="departmentChange()">
+						  	<option [value]=0>&nbsp;Select an department</option>
+						    <option *ngFor="let d of departments" [value]="d.id" [selected]="id_department == d.id">{{d.name}} - {{d.code}}</option>
+				   </select>
+		      </div>
+			</div>
+		</form>
+		<patients-list *ngIf="id_department!=0" instituteID="{{id_institute}}" departmentID="{{id_department}}"></patients-list>
+	</div>
+</section>

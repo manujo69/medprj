@@ -1,0 +1,42 @@
+/* APP css */
+/deep/ table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  border: 1px solid lightgrey	;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/deep/ table thead tr th {
+	border-bottom: 1px solid grey;
+	border-top: 1px solid grey;
+	background: lightgrey;
+}
+
+/deep/ table tbody tr { cursor: pointer; }
+/deep/ table tbody tr:hover { background: #ffffcc !important; }
+
+/deep/ table tbody tr td { padding: 5px 8px; border-left: 1px dotted #ddd; }
+/deep/ table tbody tr:nth-child(even) { background: #e1e5e6; }
+
+/deep/ select.form-control { font-size: .8em; }
+/deep/ button.btn { font-size: .8em; }
+
+/deep/ .modal-open .modal {
+    background: url(/assets/img/pixel.png);
+}
+
+/deep/ .modal-dialog {
+	top: 100px;
+}
+
+/deep/ input.form-control {
+	margin-bottom: 20px;
+	font-size: .8em;
+}
+
+/deep/ section {
+	margin-top: 20px;
+	margin-bottom: 20px;	
+}

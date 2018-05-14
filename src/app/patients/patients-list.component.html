@@ -1,0 +1,24 @@
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+		       <th style="width: 8%">ID</th>
+		       <th style="width: 13%">First name</th>
+		       <th style="width: 15%">Last name</th>
+		       <th style="width: 15%">Patient number</th>
+		       <th style="width: 20%">Gender</th>
+		       <th style="width: 20%">Birthdate</th>
+		    </tr>
+		</thead>			
+		   <tbody>
+		    <tr *ngFor="let patient of patients; let i = index" (click)="onSelectPatient(i)">
+		    	<td>{{patient.id}}</td>
+		    	<td>{{patient.patientNumber}}</td>
+		    	<td>{{patient.firstName}}</td>
+		        <td>{{patient.lastName}}</td>
+		        <td>{{patient.gender}}</td>
+		        <td>{{patient.birthDate}}</td>
+		    </tr>
+		</tbody>
+	</table>	
+</div>

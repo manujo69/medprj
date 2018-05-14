@@ -1,0 +1,67 @@
+<section>
+	<div class="container">
+		<h1>Medications List</h1>
+		<div class="row">
+			<div class="col-md-12">
+				<button class="btn" (click)="goBack()">< back</button>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="container">	
+		<div class="row">
+			<div class="col-md-12"><h3>Medication for {{patient.firstName}} {{patient.lastName}}</h3></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table">
+					<thead>
+						<tr>
+					       <th style="width: 8%">ID</th>
+					       <th style="width: 13%">Name</th>
+					       <th style="width: 15%">Dosage</th>
+					       <th style="width: 15%">Time</th>
+					       <th style="width: 20%">Remark</th>
+					    </tr>
+					</thead>			
+					   <tbody>
+					    <tr *ngFor="let medication of medications; let i = index">
+					    	<td>{{medication.id}}</td>
+					    	<td>{{medication.name}}</td>
+					    	<td>{{medication.dosage}}</td>
+					        <td>{{medication.time}}</td>
+					        <td>
+					        	<div>{{medication.remark}}</div>
+					        	<div><button class="btn" (click)="editRemark(i)">Edit remark</button></div>
+					        </td>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>	
+</section>
+
+
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Editing remark</h4>
+        <button (click)="childModal.hide()" type="button" class="close pull-right" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form name="remarkForm" id="remarkForm">
+	      <div class="modal-body">
+	      	<label for="rmk">Remark</label>
+	      	<input type="text" class="form-control" id="rmk"
+	               [(ngModel)]="remark" name="rmk"
+	               #rmk="ngModel">
+	        <button (click)="saveRemark($event)" type="button" class="btn">Save</button>
+	      </div>
+	  </form>
+    </div>
+  </div>
+</div>
